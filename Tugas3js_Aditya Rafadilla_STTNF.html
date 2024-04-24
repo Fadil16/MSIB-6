@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Eksternal</title>
+</head>
+<body>
+    <form id="frm" onsubmit="dataperson(); return false;">
+        <table style="width: 50%; background-color: aqua;border: 1px solid; text-align: center; margin: auto;">
+            <tr>
+                <th colspan="2">Form Input</th>
+            </tr>
+            <tr>
+                <td><label for="Nama">Nama</label></td>
+                <td>
+                    <input type="text" name="Nama" id="Nama" placeholder="Masukan nama anda">
+                </td>
+            </tr>
+            <tr>
+                <td><label for="Pekerjaan">Pekerjaan</label></td>
+                <td>
+                    <input type="text" name="Pekerjaan" id="Pekerjaan" placeholder="Masukan Pekerjaan"> 
+                </td>
+            </tr>
+            <tr>
+                <td><label for="Hobby">Hobby</label></td>
+                <td>
+                    <input type="text" name="Hobby" id="Hobby" placeholder="Masukan Hobby"> 
+                </td>
+            </tr>
+            <tr>
+                <th colspan="2">
+                    <button type="submit" name="proses">Click</button>
+                </th>
+            </tr>
+        </table>
+    </form>
+    
+    <center>
+        <h2 id="hasil"></h2>
+    </center>
+
+    <script src="js/skrip.js"></script>
+</body>
+</html>

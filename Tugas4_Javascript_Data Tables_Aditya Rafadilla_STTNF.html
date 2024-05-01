@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Pegawai</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #beb6b6;
+        }
+        tfoot {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 style="font-family: 'Segoe UI'; text-align: center;">Data Pegawai</h1>
+    </header>
+    <main>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nama Pegawai</th>
+                    <th>Jabatan</th>
+                    <th>Status</th>
+                    <th>Gaji Pokok</th>
+                    <th>Tunjangan Jabatan</th>
+                    <th>BPJS</th>
+                    <th>Tunjangan Keluarga</th>
+                    <th>Total Gaji</th>
+                </tr>
+            </thead>
+            <tbody id="dataPegawai">
+                
+            </tbody>
+            <tfoot id="totalGaji">
+                
+            </tfoot>
+        </table>
+    </main>
+    <footer>
+        <p>&copy; Adit.R 2024</p>
+    </footer>
+
+    <script>
+        
+        var pegawai = {
+            nama: "Fadil",
+            jabatan: "Manager",
+            status: "Menikah"
+        };
+
+        
+        var gajiPokok;
+        switch (pegawai.jabatan) {
+            case "Manager":
+                gajiPokok = 15000000;
+                break;
+            case "Asisten Manager":
+                gajiPokok = 10000000;
+                break;
+            case "Staff":
+                gajiPokok = 5000000;
+                break;
+            default:
+                gajiPokok = 0;
+        }
+
+        var tunjanganJabatan = 0.15 * gajiPokok;
+        var bpjs = 0.1 * gajiPokok;
+        var tunjanganKeluarga = (pegawai.status === "Menikah") ? (0.2 * gajiPokok) : 0;
+        var totalGaji = gajiPokok + tunjanganJabatan + bpjs + tunjanganKeluarga;
+
+        
+        var dataPegawai = document.getElementById("dataPegawai");
+        var totalGajiElement = document.getElementById("totalGaji");
+
+        var row = "<tr>";
+        row += "<td>" + pegawai.nama + "</td>";
+        row += "<td>" + pegawai.jabatan + "</td>";
+        row += "<td>" + pegawai.status + "</td>";
+        row += "<td>" + gajiPokok.toLocaleString() + "</td>";
+        row += "<td>" + tunjanganJabatan.toLocaleString() + "</td>";
+        row += "<td>" + bpjs.toLocaleString() + "</td>";
+        row += "<td>" + tunjanganKeluarga.toLocaleString() + "</td>";
+        row += "<td>" + totalGaji.toLocaleString() + "</td>";
+        row += "</tr>";
+
+        dataPegawai.innerHTML = row;
+
+        totalGajiElement.innerHTML = "<tr><td colspan='7'>Total Gaji</td><td>" + totalGaji.toLocaleString() + "</td></tr>";
+    </script>
+</body>
+</html>
